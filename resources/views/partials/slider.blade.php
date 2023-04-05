@@ -58,7 +58,7 @@
                 <span class="year">2022</span>
             </div>
             <div class="mb-3">
-                <p class="letter-spaced">Black Adam</p>
+                <p class="letter-spaced">Black Ada</p>
                 <p class="deskripsi">
                     Set more than a decade after the events of the first film, learn the story of the Sully family Jake, Neytiri, and their kids, the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.
                 </p>
@@ -70,7 +70,6 @@
         </div>  
       </div>
     </div>
-    
       <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>

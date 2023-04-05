@@ -1,3 +1,3 @@
-<footer>
-    <p>&#169; Copyright Film21</p>
+<footer class="mx-auto">
+    <p>&#169; Copyright Indoseries</p>
 </footer>

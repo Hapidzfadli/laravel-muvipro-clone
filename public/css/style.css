@@ -124,6 +124,66 @@ body {
   .content {
     padding: 20px 5%;
   }
+  .card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    height: 60px;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #f5f5f5;
+    color: #16151a;
+  }
+
+  .card {
+    width: 150px;
+    height: 250px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    display: inline-block;
+  }
+  .card:nth-child(n+2){
+    margin-left: 20px;
+  }
+  .card-slider {
+    position: relative;
+  }
+  
+
+  .slick-prev,
+.slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  background-color: #ffffff00;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+}
+
+.slick-prev {
+  left: -10px;
+}
+
+.slick-next {
+  right: -10px;
+}
+
+/* footer */
+footer {
+    width: 100vw;
+    margin: auto;
+    text-align: center;
+}
 
  /* Extra small devices (phones, 600px and down) */
  @media only screen and (max-width: 600px) {
