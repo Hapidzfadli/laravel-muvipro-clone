@@ -33,9 +33,9 @@
 
     @include('partials.navbar')
 
-    <div class="container">
+    @yield('slider')
+    
         @yield('container')
-    </div>
 
     {{-- @include('layouts.footer') --}}
     
