@@ -6,116 +6,363 @@
 
 @section('container')
     <div class="content mb-4">
-        <div class="trending">
-            <p>Trending Now</p>
-                <div class="row position-relative">
-                  <div class="col-12">
-                    <div class="card-slider">
-                      <div class="card-deck">
-                        <div class="card">
-                          <a href="">
-                            <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" alt="Card image cap">
-                          <div class="card-body">
-                            <p class="card-title">Avatar: The Way of Water</p>
-                          </div>
-                          </a>
-                        </div>
-                        <div class="card">
-                          <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/4F2QwCOYHJJjecSvdOjStuVLkpu.jpg" alt="Card image cap">
-                          <div class="card-body">
-                            <p class="card-title">Tetris</p>
-                          </div>
-                        </div>
-                        <div class="card">
-                          <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/byYLhZLwKAMlLFVEcIH6LMOc5Us.jpg" alt="Card image cap">
-                          <div class="card-body">
-                            <p class="card-title">Inside</p>
-                          </div>
-                        </div>
-                        <div class="card">
-                          <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/5wpVy0KUWzDKDKgrayM0Q8lXOiK.jpg" alt="Card image cap">
-                          <div class="card-body">
-                            <p class="card-title">Murder Mystery 2</p>
-                          </div>
-                        </div>
-                        <div class="card">
-                          <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/cvsXj3I9Q2iyyIo95AecSd1tad7.jpg" alt="Card image cap">
-                          <div class="card-body">
-                            <p class="card-title">Creed III</p>
-                          </div>
-                        </div>
-                        <div class="card">
-                          <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg" alt="Card image cap">
-                          <div class="card-body">
-                            <p class="card-title">The Super Mario Bros. Movie</p>
-                          </div>
-                        </div>
-                        <div class="card">
-                            <img class="card-img-top" src="https://via.placeholder.com/150x230.png" alt="Card image cap">
-                            <div class="card-body">
-                              <p class="card-title">Card title</p>
-    
-        
-                            </div>
-                          </div>
-                          <div class="card">
-                            <img class="card-img-top" src="https://via.placeholder.com/150x230.png" alt="Card image cap">
-                            <div class="card-body">
-                              <p class="card-title">Card title</p>
-    
-        
-                            </div>
-                          </div>
-                          <div class="card">
-                            <img class="card-img-top" src="https://via.placeholder.com/150x230.png" alt="Card image cap">
-                            <div class="card-body">
-                              <p class="card-title">Card title</p>
-    
-        
-                            </div>
-                          </div>
-                          <div class="card">
-                            <img class="card-img-top" src="https://via.placeholder.com/150x230.png" alt="Card image cap">
-                            <div class="card-body">
-                              <p class="card-title">Card title</p>
-                            </div>
-                          </div>
-                          <div class="card">
-                            <img class="card-img-top" src="https://via.placeholder.com/150x230.png" alt="Card image cap">
-                            <div class="card-body">
-                              <p class="card-title">Card title</p>
-                            </div>
-                          </div>
-                          <div class="card">
-                            <img class="card-img-top" src="https://via.placeholder.com/150x230.png" alt="Card image cap">
-                            <div class="card-body">
-                              <p class="card-title">Card title</p>
-                            </div>
-                          </div>
-                          <div class="card">
-                            <img class="card-img-top" src="https://via.placeholder.com/150x230.png" alt="Card image cap">
-                            <div class="card-body">
-                              <p class="card-title">Card title</p>
-                            </div>
-                          </div>
-                      </div>
-                      
+      <div class="my-4">
+        <p>Trending</p>
+        <div class="row position-relative">
+          <div class="col-12">
+            <div class="card-slider">
+              <div class="card-deck trending">
+                @foreach ($trending as $item)
+                  <div class="card">
+                    <a href="">
+                      <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-title">{{$item->post_title}}</p>
                     </div>
+                    </a>
                   </div>
-                  <button class="slick-prev"><i class="fas fa-chevron-left"></i></button>
-                  <button class="slick-next"><i class="fas fa-chevron-right"></i></button>
+                @endforeach
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="my-4">
+        <p>Tv Show</p>
+        <div class="row position-relative">
+          <div class="col-12">
+            <div class="card-slider">
+              <div class="card-deck tvshow">
+                @foreach ($tvshow as $item)
+                  <div class="card">
+                    <a href="">
+                      <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-title">{{$item->post_title}}</p>
+                    </div>
+                    </a>
+                  </div>
+                @endforeach
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="my-4">
+          <p>Action</p>
+          <div class="row position-relative">
+            <div class="col-12">
+              <div class="card-slider">
+                <div class="card-deck actions">
+                  @foreach ($actions as $action)
+                    <div class="card">
+                      <a href="">
+                        <img class="card-img-top" data-src="{{$action->meta_value}}" src="{{$action->meta_value}}" class="lazyload" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-title">{{$action->post_title}}</p>
+                      </div>
+                      </a>
+                    </div>
+                  @endforeach
                 </div>
-              
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="my-4">
+          <p>Adventure</p>
+          <div class="row position-relative">
+            <div class="col-12">
+              <div class="card-slider">
+                <div class="card-deck adventures">
+                  @foreach ($adventures as $adventure)
+                    <div class="card">
+                      <a href="">
+                        <img class="card-img-top" data-src="{{$adventure->meta_value}}" src="{{$adventure->meta_value}}" class="lazyload" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-title">{{$adventure->post_title}}</p>
+                      </div>
+                      </a>
+                    </div>
+                  @endforeach
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="my-4">
+          <p>Horror</p>
+          <div class="row position-relative">
+            <div class="col-12">
+              <div class="card-slider">
+                <div class="card-deck horror">
+                  @foreach ($horror as $item)
+                    <div class="card">
+                      <a href="">
+                        <img class="card-img-top" data-src="{{$item->meta_value}}"  src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-title">{{$item->post_title}}</p>
+                      </div>
+                      </a>
+                    </div>
+                  @endforeach
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="my-4">
+          <p>Comedy</p>
+          <div class="row position-relative">
+            <div class="col-12">
+              <div class="card-slider">
+                <div class="card-deck comedy">
+                  @foreach ($comedy as $item)
+                    <div class="card">
+                      <a href="">
+                        <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-title">{{$item->post_title}}</p>
+                      </div>
+                      </a>
+                    </div>
+                  @endforeach
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class=" my-4">
+          <p>Drama</p>
+          <div class="row position-relative">
+            <div class="col-12">
+              <div class="card-slider">
+                <div class="card-deck drama">
+                  @foreach ($drama as $item)
+                    <div class="card">
+                      <a href="">
+                        <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
+                      <div class="card-body">
+                        <p class="card-title">{{$item->post_title}}</p>
+                      </div>
+                      </a>
+                    </div>
+                  @endforeach
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         
     </div>
     <script>
         $(document).ready(function(){
-        $('.card-deck').slick({
+        $('.actions').slick({
+            slidesToShow: 9,
+            lazyLoad: 'ondemand',
+            slidesToScroll: 1,
+            
+            
+            responsive: [
+                {
+              breakpoint: 300, // untuk ukuran layar 300px ke atas
+              settings: {
+                  slidesToShow: 2
+              }
+              },
+              {
+              breakpoint: 768, // untuk ukuran layar 768px ke atas
+              settings: {
+                  slidesToShow: 3
+              }
+              },
+              
+              {
+              breakpoint: 992, // untuk ukuran layar 992px ke atas
+              settings: {
+                  slidesToShow: 5
+              }
+              },
+              {
+              breakpoint: 1200, // untuk ukuran layar 1200px ke atas
+              settings: {
+                  slidesToShow: 7
+              }
+              }
+          ]
+        });
+        $('.tvshow').slick({
+            slidesToShow: 9,
+            lazyLoad: 'ondemand',
+            slidesToScroll: 1,
+            
+            
+            responsive: [
+                {
+              breakpoint: 300, // untuk ukuran layar 300px ke atas
+              settings: {
+                  slidesToShow: 2
+              }
+              },
+              {
+              breakpoint: 768, // untuk ukuran layar 768px ke atas
+              settings: {
+                  slidesToShow: 3
+              }
+              },
+              
+              {
+              breakpoint: 992, // untuk ukuran layar 992px ke atas
+              settings: {
+                  slidesToShow: 5
+              }
+              },
+              {
+              breakpoint: 1200, // untuk ukuran layar 1200px ke atas
+              settings: {
+                  slidesToShow: 7
+              }
+              }
+          ]
+        });
+        $('.trending').slick({
+            slidesToShow: 9,
+            lazyLoad: 'ondemand',
+            slidesToScroll: 1,
+            
+            
+            responsive: [
+                {
+              breakpoint: 300, // untuk ukuran layar 300px ke atas
+              settings: {
+                  slidesToShow: 2
+              }
+              },
+              {
+              breakpoint: 768, // untuk ukuran layar 768px ke atas
+              settings: {
+                  slidesToShow: 3
+              }
+              },
+              
+              {
+              breakpoint: 992, // untuk ukuran layar 992px ke atas
+              settings: {
+                  slidesToShow: 5
+              }
+              },
+              {
+              breakpoint: 1200, // untuk ukuran layar 1200px ke atas
+              settings: {
+                  slidesToShow: 7
+              }
+              }
+          ]
+        });
+        $('.comedy').slick({
             slidesToShow: 9,
             slidesToScroll: 1,
-            prevArrow: $('.slick-prev'),
-            nextArrow: $('.slick-next'),
+            
+            
+            responsive: [
+                {
+              breakpoint: 300, // untuk ukuran layar 300px ke atas
+              settings: {
+                  slidesToShow: 2
+              }
+              },
+              {
+              breakpoint: 768, // untuk ukuran layar 768px ke atas
+              settings: {
+                  slidesToShow: 3
+              }
+              },
+              
+              {
+              breakpoint: 992, // untuk ukuran layar 992px ke atas
+              settings: {
+                  slidesToShow: 5
+              }
+              },
+              {
+              breakpoint: 1200, // untuk ukuran layar 1200px ke atas
+              settings: {
+                  slidesToShow: 7
+              }
+              }
+          ]
+        });
+        $('.horror').slick({
+            slidesToShow: 9,
+            slidesToScroll: 1,
+            
+            
+            responsive: [
+                {
+              breakpoint: 300, // untuk ukuran layar 300px ke atas
+              settings: {
+                  slidesToShow: 2
+              }
+              },
+              {
+              breakpoint: 768, // untuk ukuran layar 768px ke atas
+              settings: {
+                  slidesToShow: 3
+              }
+              },
+              
+              {
+              breakpoint: 992, // untuk ukuran layar 992px ke atas
+              settings: {
+                  slidesToShow: 5
+              }
+              },
+              {
+              breakpoint: 1200, // untuk ukuran layar 1200px ke atas
+              settings: {
+                  slidesToShow: 7
+              }
+              }
+          ]
+        });
+        $('.drama').slick({
+            slidesToShow: 9,
+            slidesToScroll: 1,
+            
+            
+            responsive: [
+                {
+              breakpoint: 300, // untuk ukuran layar 300px ke atas
+              settings: {
+                  slidesToShow: 2
+              }
+              },
+              {
+              breakpoint: 768, // untuk ukuran layar 768px ke atas
+              settings: {
+                  slidesToShow: 3
+              }
+              },
+              
+              {
+              breakpoint: 992, // untuk ukuran layar 992px ke atas
+              settings: {
+                  slidesToShow: 5
+              }
+              },
+              {
+              breakpoint: 1200, // untuk ukuran layar 1200px ke atas
+              settings: {
+                  slidesToShow: 7
+              }
+              }
+          ]
+        });
+        $('.adventures').slick({
+            slidesToShow: 9,
+            slidesToScroll: 1,
+            
             responsive: [
                 {
         breakpoint: 300, // untuk ukuran layar 300px ke atas
