@@ -12,9 +12,10 @@ body {
     color: #ffffff;
     background-color: #16151a;
     font-family: 'Poppins', sans-serif;
-    width: 100vw;
+    max-width: 100vw;
     min-height: 100vh;
     font-size: 16px;
+    overflow-x: hidden;
   }
 
 .navbar  {
@@ -124,13 +125,13 @@ body {
   .content {
     padding: 20px 5%;
   }
-  .card img {
+  .card-deck .card img {
     width: 100%;
     max-height: 200px;
     object-fit: cover;
   }
   
-  .card-body {
+  .card-deck .card-body {
     height: 60px;
     padding: 10px;
     font-size: 14px;
@@ -138,16 +139,16 @@ body {
     color: #16151a;
   }
 
-  .card {
+  .card-deck .card {
     width: 150px;
-    height: 250px;
+    height: 260px;
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
     overflow: hidden;
     display: inline-block;
   }
-  .card:nth-child(n+2){
+  .card-deck .card:nth-child(n+2){
     margin-left: 20px;
   }
   .card-slider {
@@ -171,11 +172,11 @@ body {
 }
 
 .slick-prev {
-  left: -10px;
+  left: 5px !important;
 }
 
 .slick-next {
-  right: -10px;
+  right: 5px !important;
 }
 
 /* footer */
@@ -184,6 +185,65 @@ footer {
     margin: auto;
     text-align: center;
 }
+
+/* singele page */
+.stream {
+    height: 550px;
+    box-shadow: rgba(22, 21, 26, 0.2) 0px 7px 29px 0px;
+    position: relative;
+    max-width: 100vw;
+}
+
+.card {
+  cursor: pointer;
+}
+.card-deck .card:hover {
+  transform: scale(0.9);
+  
+}
+
+.image-post {
+  width: 150px;
+  height: 200px;
+}
+.image-post .card {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.image-post .card img {
+  width: 100%;
+  height: 100%;
+}
+.detail-post {
+  margin-left: 20px;
+}
+.category-post button {
+  padding: 5px 16px;
+}
+.category-post button:hover, .reaction-post .btn-outline-primary:hover, .player-btn .btn:hover, .btn-download .btn:hover {
+  background-color:#E84F04 !important;
+  color: #fff !important;
+  transform: scale(0.95);
+}
+.reaction-post .btn-watch {
+     padding: 13px 30px;
+}
+.reaction-post .btn-outline-primary, .reaction-post .btn-outline-danger {
+  width: 50px;
+  height: 50px;
+}
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+}
+.sidebar .side-single {
+  margin-left: 20px;
+}
+
 
  /* Extra small devices (phones, 600px and down) */
  @media only screen and (max-width: 600px) {
@@ -195,6 +255,9 @@ footer {
     }
     .carousel-caption {
         width: 50vw;
+    }
+    .image-post {
+      display: none;
     }
  }
 
@@ -211,6 +274,12 @@ footer {
     }
     .carousel-caption {
         width: 50vw;
+    }
+    .image-post {
+      display: none;
+    }
+    .judul-post {
+      margin-top: 20px;
     }
  }
  
@@ -242,6 +311,12 @@ footer {
       }
       .carousel-caption {
         width: 30vw;
+    }
+    .sidebar {
+      border-left: 1px solid rgba(255, 255, 255, 0.354)
+    }
+    .image-post {
+      display: block;
     }
  }
  

@@ -15,10 +15,12 @@
                 <p class="deskripsi">
                     Set more than a decade after the events of the first film, learn the story of the Sully family Jake, Neytiri, and their kids, the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.
                 </p>
-                <button class="btn btn-watch">
-                    <i class="fas fa-play"></i>
-                    <span>Watch</span>
-                </button>
+                <a href="/stream">
+                    <button class="btn btn-watch">
+                        <i class="fas fa-play"></i>
+                        <span>Watch</span>
+                    </button>
+                </a>
             </div>
                 
                 

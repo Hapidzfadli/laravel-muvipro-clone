@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-transparant fixed-top">
-    <a class="navbar-brand" href="#">Indoseries</a>
+    <a class="navbar-brand" href="{{ route('home') }}">Indoseries</a>
     
     <div class="collapse navbar-collapse ml-lg-1" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active mx-2">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item mx-2">
           <a class="nav-link" href="#">TV Shows</a>
