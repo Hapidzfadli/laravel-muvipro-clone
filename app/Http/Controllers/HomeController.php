@@ -13,8 +13,7 @@ class HomeController extends Controller
         $trending = Home::getPostTrending();
         $tvshow = Home::getTvShow();
         $postHeader = Home::getPostHeader();
-
-
+        // dd($action);
 
         return view('index', [
             "title" => "Indoseries2 21",

@@ -14,7 +14,7 @@
               <div class="card-deck trending">
                 @foreach ($trending as $item)
                   <div class="card">
-                    <a href="">
+                    <a href="{{$item->post_name}}">
                       <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
                     <div class="card-body">
                       <p class="card-title">{{$item->post_title}}</p>
@@ -35,7 +35,7 @@
               <div class="card-deck tvshow">
                 @foreach ($tvshow as $item)
                   <div class="card">
-                    <a href="">
+                    <a href="{{$item->post_name}}">
                       <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
                     <div class="card-body">
                       <p class="card-title">{{$item->post_title}}</p>
@@ -56,7 +56,7 @@
                 <div class="card-deck actions">
                   @foreach ($actions as $action)
                     <div class="card">
-                      <a href="">
+                      <a href="{{$action->post_name}}">
                         <img class="card-img-top" data-src="{{$action->meta_value}}" src="{{$action->meta_value}}" class="lazyload" alt="Card image cap">
                       <div class="card-body">
                         <p class="card-title">{{$action->post_title}}</p>
@@ -77,7 +77,7 @@
                 <div class="card-deck adventures">
                   @foreach ($adventures as $adventure)
                     <div class="card">
-                      <a href="">
+                      <a href="{{$adventure->post_name}}">
                         <img class="card-img-top" data-src="{{$adventure->meta_value}}" src="{{$adventure->meta_value}}" class="lazyload" alt="Card image cap">
                       <div class="card-body">
                         <p class="card-title">{{$adventure->post_title}}</p>
@@ -99,7 +99,7 @@
                 <div class="card-deck horror">
                   @foreach ($horror as $item)
                     <div class="card">
-                      <a href="">
+                      <a href="{{$item->post_name}}">
                         <img class="card-img-top" data-src="{{$item->meta_value}}"  src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
                       <div class="card-body">
                         <p class="card-title">{{$item->post_title}}</p>
@@ -120,7 +120,7 @@
                 <div class="card-deck comedy">
                   @foreach ($comedy as $item)
                     <div class="card">
-                      <a href="">
+                      <a href="{{$item->post_name}}">
                         <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
                       <div class="card-body">
                         <p class="card-title">{{$item->post_title}}</p>

@@ -54,6 +54,9 @@ body {
     height: 100%;
     background: linear-gradient(to right, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.495) 60%, rgba(0, 0, 0, 0.358) 100%);
   }
+  a:hover {
+    color: #f5f5f5;
+  }
   
   .carousel-caption {
     left: 5%;
@@ -171,6 +174,10 @@ body {
   color: #fff;
 }
 
+iframe {
+  width: 100% !important;
+  height: 100% !important;
+}
 .slick-prev {
   left: 5px !important;
 }

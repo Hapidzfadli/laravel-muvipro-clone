@@ -4,8 +4,8 @@
     <div class="">
         <div class="row gutter-2">
             <div class="col-12">
-                <div class="stream">
-                    <iframe width="100%" height="100%" height="315" src="//mixdrop.co/e/9nj9zkddu3nd7nw" frameborder="0" allowfullscreen></iframe>
+                <div class="stream" id="streaming">
+                    @if(isset($post['meta_post']['IDMUVICORE_Player1'])){!! $post['meta_post']['IDMUVICORE_Player1']!!} @endif 
                 </div>
 
                 <div class="content row">
@@ -13,47 +13,54 @@
                         <div class="row position-relative">
                             <div class="col-2 image-post">
                                 <div class="card">
-                                    <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" alt="Card image cap">
+                                    <img class="card-img-top" src="@if(isset($post['meta_post']['IDMUVICORE_Poster'])){{$post['meta_post']['IDMUVICORE_Poster']}} @endif" alt="Card image cap">
                                 </div>
                             </div>
                             <div class="col col-lg-9 detail-post position-relative">
                               <div class="player-btn position-absolute" style="right:0;">
-                                <button class="btn btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                <button class="btn ply-back btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;"><i class="fa fa-arrow-left" aria-hidden="true"></i>
                                 </button> 
                                 player <span class="player-number">1</span>
-                                <button class="btn btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;"><i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                <button class="btn ply-next btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;"><i class="fa fa-arrow-right" aria-hidden="true"></i>
                                 </button> 
                               </div>
                                 <div class="rating mb-2">
                                     <i class="fas fa-star"></i>
-                                    <span>8.5</span>
+                                    <span>@if(isset($post['meta_post']['IDMUVICORE_tmdbRating'])){{$post['meta_post']['IDMUVICORE_tmdbRating']}} @endif</span>
                                     <span class="mx-3">> • </span>
-                                    <span class="year">2022</span>
+                                    <span class="year">@if(isset($post['meta_post']['IDMUVICORE_Released'])){{$post['meta_post']['IDMUVICORE_Released']}} @endif</span>
                                     <span class="mx-3">> • </span>
-                                    <div class="usia" style="font-size: 10px;">PG13+</div>   
+                                    <div class="usia" style="font-size: 10px;">@if(isset($post['meta_post']['IDMUVICORE_Runtime'])){{$post['meta_post']['IDMUVICORE_Runtime']}} @endif min</div>   
                                 </div>
                                 <div class="judul-post mb-3">
-                                    <h2 class="letter-spaced" style="font-size: 42px;">Avatar: The Way of Water</h2>
+                                    <h2 class="letter-spaced" style="font-size: 42px;">{{$post['post_title']}}</h2>
                                 </div>
                                 <div class="category-post mb-4 mx-0">
                                     <div class="d-flex gap-2">
-                                        <a href="">
-                                            <button class="btn btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">Action</button> 
-                                        </a> 
-                                        <a href="">
-                                          <button class="btn btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">Science Fiction</button> 
-                                        </a>
-                                        <a href="">
-                                          <button class="btn btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">Adventure</button> 
-                                        </a>
+                                      @if(isset($post['category']))
+                                        @foreach ($post['category'] as $item)
+                                          <a href="/category/{{$item}}">
+                                            <button class="btn btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$item}}</button> 
+                                          </a> 
+                                        @endforeach
+                                      @endif
+                                      @if(isset($post['muvicountry']))
+                                        @foreach ($post['muvicountry'] as $item)
+                                          <a href="/muvicountry/{{$item}}">
+                                            <button class="btn btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$item}}</button> 
+                                          </a> 
+                                        @endforeach
+                                      @endif
                                     </div>
                                 </div>
                                 <div class="reaction-post col-5" >
                                     <div class="d-flex justify-content-start gap-2">
-                                        <button class="btn btn-watch">
+                                        <a href="#streaming">
+                                          <button class="btn btn-watch">
                                             <i class="fas fa-play"></i>
                                             <span>Watch</span>
                                         </button>
+                                        </a>
                                         
                                         <button class="btn btn-outline-danger rounded-circle" style="border-width: 3px">
                                             <i class="fas fa-heart" style="padding: 0"></i>
@@ -66,85 +73,82 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-12">
                                         <div class="deskripsi-post mt-4">
-                                            <p style="font-size: 14px">Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.</p>
+                                            <p style="font-size: 14px">{!!$post['post_content']!!}</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col">
                                         <div class="row">
-                                            <div class="col-6 col">
-                                                <div class="cast-post mt-4 d-flex gap-4">
-                                                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp" class="rounded-circle mb-3" style="width: 70px;" alt="Avatar" /> 
-                                                    <div class="card-name">
-                                                        <h5 class="mb-2"><strong>John Doe</strong></h5>
-                                                        <p class="text-muted">Web designer</p>         
-                                                    </div>                          
-                                                </div>
+                                          @if(isset($post['muvicast']))
+                                            @foreach ($post['muvicast'] as $item)
+                                              <div class="col-6 col">
+                                                  <div class="cast-post mt-4 d-flex gap-4">
+                                                      <img src="https://arjuna-mc.site/img/man.png" class="rounded-circle mb-3" style="width: 70px; height: 70px;" alt="Avatar" /> 
+                                                      <div class="card-name">
+                                                          <h5 class="mb-2"><strong>{{$item}}</strong></h5>
+                                                          <p class="text-muted">Cast</p>         
+                                                      </div>                          
+                                                  </div>
+                                              </div> 
+                                            @endforeach
+                                          @endif
+                                          @if(isset($post['muvidirector']))
+                                          <div class="col-6 col">
+                                            <div class="cast-post mt-4 d-flex gap-4">
+                                                <img src="https://arjuna-mc.site/img/man1.png" class="rounded-circle mb-3" style="width: 70px; height: 70px;" alt="Avatar" /> 
+                                                <div class="card-name">
+                                                    <h5 class="mb-2"><strong>{{$post['muvidirector']}}</strong></h5>
+                                                    <p class="text-muted">Director</p>         
+                                                </div>                          
                                             </div>
-                                            <div class="col-6 col">
-                                                <div class="cast-post mt-4 d-flex gap-4">
-                                                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp" class="rounded-circle mb-3" style="width: 70px;" alt="Avatar" /> 
-                                                    <div class="card-name">
-                                                        <h5 class="mb-2"><strong>John Doe</strong></h5>
-                                                        <p class="text-muted">Web designer</p>         
-                                                    </div>                          
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-lg-6 col">
-                                                <div class="cast-post mt-4 d-flex gap-4">
-                                                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp" class="rounded-circle mb-3" style="width: 70px;" alt="Avatar" /> 
-                                                    <div class="card-name">
-                                                        <h5 class="mb-2"><strong>John Doe</strong></h5>
-                                                        <p class="text-muted">Web designer</p>         
-                                                    </div>                          
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col">
-                                                <div class="cast-post mt-4 d-flex gap-4">
-                                                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp" class="rounded-circle mb-3" style="width: 70px;" alt="Avatar" /> 
-                                                    <div class="card-name">
-                                                        <h5 class="mb-2"><strong>John Doe</strong></h5>
-                                                        <p class="text-muted">Web designer</p>         
-                                                    </div>                          
-                                                </div>
-                                            </div>
+                                          </div> 
+                                        @endif
                                         </div>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row btn-download">
-                                  <div class="col my-2">
-                                    <a href="">
-                                      <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">Download 1</button> 
-                                    </a>
-                                  </div>
-                                  <div class="col my-2">
-                                    <a href="">
-                                      <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">Download 2</button> 
-                                    </a>
-                                  </div>
-                                  <div class="col my-2">
-                                    <a href="">
-                                      <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">Download 3</button> 
-                                    </a>
-                                  </div>
-                                  <div class="col my-2">
-                                    <a href="">
-                                      <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">Download 1</button> 
-                                    </a>
-                                  </div>
-                                  <div class="col my-2">
-                                    <a href="">
-                                      <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">Download 2</button> 
-                                    </a>
-                                  </div>
-                                  <div class="col my-2">
-                                    <a href="">
-                                      <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">Download 3</button> 
-                                    </a>
-                                  </div>
+                                  @if(isset($post['meta_post']['IDMUVICORE_Download1']))
+                                    <div class="col my-2">
+                                        <a href="{{$post['meta_post']['IDMUVICORE_Download1']}}">
+                                            <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$post['meta_post']['IDMUVICORE_Title_Download1']}}</button> 
+                                        </a>
+                                    </div>
+                                  @endif
+                                  @if(isset($post['meta_post']['IDMUVICORE_Download2']))
+                                    <div class="col my-2">
+                                        <a href="{{$post['meta_post']['IDMUVICORE_Download2']}}">
+                                            <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$post['meta_post']['IDMUVICORE_Title_Download2']}}</button> 
+                                        </a>
+                                    </div>
+                                  @endif
+                                  @if(isset($post['meta_post']['IDMUVICORE_Download3']))
+                                    <div class="col my-2">
+                                        <a href="{{$post['meta_post']['IDMUVICORE_Download3']}}">
+                                            <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$post['meta_post']['IDMUVICORE_Title_Download3']}}</button> 
+                                        </a>
+                                    </div>
+                                  @endif
+                                  @if(isset($post['meta_post']['IDMUVICORE_Download4']))
+                                    <div class="col my-2">
+                                        <a href="{{$post['meta_post']['IDMUVICORE_Download4']}}">
+                                            <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$post['meta_post']['IDMUVICORE_Title_Download4']}}</button> 
+                                        </a>
+                                    </div>
+                                  @endif
+                                  @if(isset($post['meta_post']['IDMUVICORE_Download5']))
+                                    <div class="col my-2">
+                                        <a href="{{$post['meta_post']['IDMUVICORE_Download5']}}">
+                                            <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$post['meta_post']['IDMUVICORE_Title_Download5']}}</button> 
+                                        </a>
+                                    </div>
+                                  @endif
+                                  @if(isset($post['meta_post']['IDMUVICORE_Download6']))
+                                    <div class="col my-2">
+                                        <a href="{{$post['meta_post']['IDMUVICORE_Download6']}}">
+                                            <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$post['meta_post']['IDMUVICORE_Title_Download6']}}</button> 
+                                        </a>
+                                    </div>
+                                  @endif
                                 </div>
                             </div>
                         </div>
@@ -152,30 +156,19 @@
                     <div class=" col sidebar" >
                         <div class="side-single">
                             <h4 class="mb-3 letter-spaced" >Populer</h4>
-                            <div class="side-post d-flex gap-4">
-                                <img src="https://www.themoviedb.org/t/p/w440_and_h660_face/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" class="rounded mb-3" style="width: 80px;" alt="Avatar" /> 
-                                <div class="side-judul">
-                                    <p style="font-size: 16px;">Avatar: The Way of Water</p>
-                                    <p style="font-size: 14px; line-height: 16px;"><span class="side-category my-0">action, adventure</span><br>
-                                        <span class="side-tahun my-0">2022</span></p>
+                            @foreach ($popular as $item)
+                              <a href="{{$item->post_name}}">
+                                <div class="side-post d-flex gap-4">
+                                  <img src="{{$item->meta_value}}" class="rounded mb-3" style="width: 80px;" alt="{{$item->post_title}}" /> 
+                                  <div class="side-judul">
+                                      <p style="font-size: 16px;">{{$item->post_title}}</p>
+                                      {{-- <p style="font-size: 14px; line-height: 16px;"><span class="side-category my-0">action, adventure</span><br>
+                                          <span class="side-tahun my-0">2022</span></p> --}}
+                                  </div>
                                 </div>
-                            </div>
-                            <div class="side-post d-flex gap-4">
-                                <img src="https://www.themoviedb.org/t/p/w440_and_h660_face/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" class="rounded mb-3" style="width: 80px;" alt="Avatar" /> 
-                                <div class="side-judul">
-                                    <p style="font-size: 16px;">Avatar: The Way of Water</p>
-                                    <p style="font-size: 14px; line-height: 16px;"><span class="side-category my-0">action, adventure</span><br>
-                                        <span class="side-tahun my-0">2022</span></p>
-                                </div>
-                            </div>
-                            <div class="side-post d-flex gap-4">
-                                <img src="https://www.themoviedb.org/t/p/w440_and_h660_face/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" class="rounded mb-3" style="width: 80px;" alt="Avatar" /> 
-                                <div class="side-judul">
-                                    <p style="font-size: 16px;">Avatar: The Way of Water</p>
-                                    <p style="font-size: 14px; line-height: 16px;"><span class="side-category my-0">action, adventure</span><br>
-                                        <span class="side-tahun my-0">2022</span></p>
-                                </div>
-                            </div>
+                              </a>
+                            @endforeach
+                            
                         </div>
                     </div>
                 </div>
@@ -187,80 +180,16 @@
                             <div class="col-12">
                               <div class="card-slider">
                                 <div class="card-deck">
-                                  <div class="card">
-                                    <a href="">
-                                      <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                      <p class="card-title">Avatar: The Way of Water</p>
+                                  @foreach ($rekomendasi as $item)
+                                    <div class="card">
+                                      <a href="{{$item->post_name}}">
+                                        <img class="card-img-top" data-src="{{$item->meta_value}}"  src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
+                                      <div class="card-body">
+                                        <p class="card-title">{{$item->post_title}}</p>
+                                      </div>
+                                      </a>
                                     </div>
-                                    </a>
-                                  </div>
-                                  <div class="card">
-                                    <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/4F2QwCOYHJJjecSvdOjStuVLkpu.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                      <p class="card-title">Tetris</p>
-                                    </div>
-                                  </div>
-                                  <div class="card">
-                                    <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/byYLhZLwKAMlLFVEcIH6LMOc5Us.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                      <p class="card-title">Inside</p>
-                                    </div>
-                                  </div>
-                                  <div class="card">
-                                    <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/5wpVy0KUWzDKDKgrayM0Q8lXOiK.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                      <p class="card-title">Murder Mystery 2</p>
-                                    </div>
-                                  </div>
-                                  <div class="card">
-                                    <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/cvsXj3I9Q2iyyIo95AecSd1tad7.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                      <p class="card-title">Creed III</p>
-                                    </div>
-                                  </div>
-                                  <div class="card">
-                                    <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                      <p class="card-title">The Super Mario Bros. Movie</p>
-                                    </div>
-                                  </div>
-                                  <div class="card">
-                                    <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/cvsXj3I9Q2iyyIo95AecSd1tad7.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                      <p class="card-title">Creed III</p>
-                                    </div>
-                                  </div>
-                                  <div class="card">
-                                    <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                      <p class="card-title">The Super Mario Bros. Movie</p>
-                                    </div>
-                                  </div>
-                                  <div class="card">
-                                    <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/cvsXj3I9Q2iyyIo95AecSd1tad7.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                      <p class="card-title">Creed III</p>
-                                    </div>
-                                  </div>
-                                  <div class="card">
-                                    <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                      <p class="card-title">The Super Mario Bros. Movie</p>
-                                    </div>
-                                  </div>
-                                  <div class="card">
-                                    <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/cvsXj3I9Q2iyyIo95AecSd1tad7.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                      <p class="card-title">Creed III</p>
-                                    </div>
-                                  </div>
-                                  <div class="card">
-                                    <img class="card-img-top" src="https://www.themoviedb.org/t/p/w440_and_h660_face/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                      <p class="card-title">The Super Mario Bros. Movie</p>
-                                    </div>
-                                  </div>
+                                  @endforeach
                                 </div>
                                 
                               </div>
@@ -308,6 +237,44 @@
         }
     ]
         });
+        });
+
+
+        //player
+        $(document).ready(function() {
+            $('.ply-back').click(function() {
+                let spanVal = $('.player-number').text()
+                let intVal = parseInt(spanVal)
+                
+                if(intVal == 2) {
+                  iframe = '{!! $post["meta_post"]["IDMUVICORE_Player1"]!!}'
+                } else if(intVal == 3) {
+                  iframe = '{!! $post["meta_post"]["IDMUVICORE_Player2"]!!}'
+                }
+                if(intVal > 1) {
+                    $('.player-number').text(intVal)
+                    $('#streaming').html(iframe)
+                }
+                intVal--
+                
+            });
+            $('.ply-next').click(function() {
+                let spanVal = $('.player-number').text()
+                let intVal = parseInt(spanVal)
+                let iframe = ''
+                
+                if(intVal == 1) {
+                  iframe = '{!! $post["meta_post"]["IDMUVICORE_Player2"]!!}'
+                } else if(intVal == 2) {
+                  iframe = '{!! $post["meta_post"]["IDMUVICORE_Player3"]!!}'
+                }
+                
+                if(intVal <= 3) {
+                  $('.player-number').text(intVal)
+                  $('#streaming').html(iframe)
+                }
+                intVal++
+            });
         });
     </script>
 @endsection

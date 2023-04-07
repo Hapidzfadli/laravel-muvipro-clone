@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SinglePageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +17,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/stream', function () {
-    return view('pages/streaming', [
-        "title" => "stream"
-    ]);
-});
+Route::get('/{postname}', [SinglePageController::class, 'index'])->name('post');

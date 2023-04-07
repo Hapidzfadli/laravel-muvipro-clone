@@ -22,17 +22,7 @@ class Home extends Model
         return $posts;
     }
 
-    public static function getCategory($post_id)
-    {
-        $category = DB::table('wp_term_relationships')
-            ->where('wp_term_relationships.object_id', "=", "$post_id")
-            ->join('wp_term_taxonomy', 'wp_term_relationships.term_taxonomy_id', '=', 'wp_term_taxonomy.term_id')
-            ->where('wp_term_taxonomy.taxonomy', '=', 'category')
-            ->join('wp_terms', 'wp_term_taxonomy.term_id', '=', 'wp_terms.term_id')
-            ->get();
-        $cat = $category->pluck('name');
-        return $cat;
-    }
+
     public static function getPostByCategory($category)
     {
         $posts = DB::table('wp_terms')
