@@ -17,8 +17,18 @@ class TvShowController extends Controller
         if (!$posts) {
             abort(404);
         }
+
+        $string = $posts['post_content'];
+        $words = str_word_count($string, 1);
+        $words = array_slice($words, 0, 20);
+
+        $title = "Indoseries21";
+        $meta_description = implode(' ', $words);
+        $meta_keywords = isset($posts['meta_post']['_yoast_wpseo_focuskw']) ? $posts['meta_post']['_yoast_wpseo_focuskw'] : $posts['post_title'];
         return view('pages/streaming', [
-            "title" => $posts['post_title'],
+            "title" => "$meta_keywords | $title",
+            "meta_description" => $meta_description,
+            "meta_keywords" => $meta_keywords,
             "post" => $posts,
             "episode" => $posts['episode'],
             "rekomendasi" => $rekomendasi,
