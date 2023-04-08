@@ -20,7 +20,7 @@ class HomeController extends Controller
         // dd($action);
 
         return view('index', [
-            "title" => "$meta_keywords",
+            "title" => "$title",
             "meta_description" => $meta_description,
             "meta_keywords" => $meta_keywords,
             'actions' => $action,

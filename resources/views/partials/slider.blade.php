@@ -15,7 +15,7 @@
                     <div class="mb-3">
                         <p class="letter-spaced">{{$item['title']}}</p>
                         <p class="deskripsi">
-                            {{$item['overview']}}
+                            {{substr($item['overview'], 0 , 150) }}
                         </p>
                         <a href="/{{$item['post_name']}}">
                             <button class="btn btn-watch">
@@ -40,7 +40,7 @@
                     <div class="mb-3">
                         <p class="letter-spaced">{{$item['title']}}</p>
                         <p class="deskripsi">
-                            {{$item['overview']}}
+                            {{substr($item['overview'], 0 , 150) }}
                         </p>
                         <a href="/{{$item['post_name']}}">
                             <button class="btn btn-watch">
