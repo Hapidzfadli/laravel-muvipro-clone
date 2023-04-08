@@ -294,7 +294,9 @@ footer {
     .navbar-toggler {
       scale: 0.7;
     }
-    
+    .stream {
+      max-height: 250px;
+    }
  }
 
  /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -319,6 +321,9 @@ footer {
     }
     .card-deck .card {
       height: 100%;
+    }
+    .stream {
+      max-height: 250px;
     }
     
  }

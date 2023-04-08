@@ -1,2 +1,34 @@
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+
 User-agent: *
-Disallow:
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /search
+Disallow: /login
+Disallow: /register
+Disallow: /password
+Disallow: /reset
+Disallow: /verify
+Disallow: /email
+Disallow: /verify-email
+Disallow: /logout
+Disallow: /terms
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /search
+Disallow: /login
+Disallow: /register
+Disallow: /password
+Disallow: /reset
+Disallow: /verify
+Disallow: /email
+Disallow: /verify-email
+Disallow: /logout
+Disallow: /terms
+Disallow: /privacy
+Disallow: /search
