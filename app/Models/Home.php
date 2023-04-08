@@ -34,6 +34,7 @@ class Home extends Model
             ->join('wp_postmeta', 'wp_posts.ID', '=', 'wp_postmeta.post_id')
             ->select('wp_posts.post_title', 'wp_posts.post_name', 'wp_postmeta.meta_value', 'wp_posts.post_type',)
             ->where('wp_postmeta.meta_key', '=', 'IDMUVICORE_Poster')
+            ->orderByDesc('wp_posts.post_date')
             ->take(15)
             ->get();
         return $posts;
