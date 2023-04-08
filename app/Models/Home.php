@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class Home extends Model
 {
@@ -42,12 +43,13 @@ class Home extends Model
     {
         $posts = DB::table('wp_posts')
             ->distinct('id')
-            ->select('wp_posts.post_title', 'wp_posts.post_type', 'wp_posts.post_name', 'wp_postmeta.meta_value')
+            ->select('wp_posts.post_title', 'wp_post_views.count', 'wp_posts.post_type', 'wp_posts.post_name', 'wp_postmeta.meta_value')
             ->join('wp_post_views', 'wp_posts.ID', '=', 'wp_post_views.id')
             ->where('wp_posts.post_type', '=', 'post')
             ->where('wp_post_views.type', '=', '4')
             ->join('wp_postmeta', 'wp_posts.ID', '=', 'wp_postmeta.post_id')
             ->where('wp_postmeta.meta_key', '=', 'IDMUVICORE_Poster')
+            ->whereBetween('wp_posts.post_date', [Carbon::now()->subMonth(1), Carbon::now()])
             ->orderByDesc('wp_post_views.count')
             ->take(15)
             ->get();
@@ -57,7 +59,7 @@ class Home extends Model
     {
         $posts = DB::table('wp_posts')
             ->distinct()
-            ->select('wp_posts.post_title', 'wp_posts.post_name', 'wp_postmeta.meta_value')
+            ->select('wp_posts.post_title', 'wp_posts.post_date', 'wp_posts.post_name', 'wp_postmeta.meta_value')
             ->where('wp_posts.post_type', '=', 'tv')
             ->join('wp_postmeta', 'wp_posts.ID', '=', 'wp_postmeta.post_id')
             ->where('wp_postmeta.meta_key', '=', 'IDMUVICORE_Poster')
@@ -70,11 +72,12 @@ class Home extends Model
     {
         $posts = DB::table('wp_posts')
             ->distinct()
-            ->select('wp_posts.post_type', 'wp_postmeta.meta_value', 'wp_posts.post_name')
+            ->select('wp_posts.post_type', 'wp_post_views.count', 'wp_postmeta.meta_value', 'wp_posts.post_name')
             ->join('wp_post_views', 'wp_posts.ID', '=', 'wp_post_views.id')
             ->where('wp_post_views.type', '=', '4')
             ->join('wp_postmeta', 'wp_posts.ID', '=', 'wp_postmeta.post_id')
             ->where('wp_postmeta.meta_key', '=', 'IDMUVICORE_imdbID')
+            ->whereBetween('wp_posts.post_date', [Carbon::now()->subMonth(1), Carbon::now()])
             ->orderByDesc('wp_post_views.count')
             ->take(5)
             ->get();
@@ -94,9 +97,6 @@ class Home extends Model
                 $result->push($data);
             }
         });
-
-
-
         return $result;
     }
 }

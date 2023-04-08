@@ -24,7 +24,7 @@
                         <div class="row position-relative">
                             <div class="col-2 image-post">
                                 <div class="card">
-                                    <img class="card-img-top" src="@if(isset($post['meta_post']['IDMUVICORE_Poster'])){{$post['meta_post']['IDMUVICORE_Poster']}} @endif" alt="Card image cap">
+                                    <img class="card-img-top" src="@if(isset($post['meta_post']['IDMUVICORE_Poster'])){{$post['meta_post']['IDMUVICORE_Poster']}} @endif" alt="{{$post['post_title']}}">
                                 </div>
                             </div>
                             <div class="col col-lg-9 detail-post position-relative">
@@ -54,13 +54,13 @@
                                 <div class="rating mb-2">
                                     <i class="fas fa-star"></i>
                                     <span>@if(isset($post['meta_post']['IDMUVICORE_tmdbRating'])){{$post['meta_post']['IDMUVICORE_tmdbRating']}} @endif</span>
-                                    <span class="mx-3">> • </span>
+                                    <span class="mx-1">> • </span>
                                     <span class="year">@if(isset($post['meta_post']['IDMUVICORE_Released'])){{$post['meta_post']['IDMUVICORE_Released']}} @endif</span>
-                                    <span class="mx-3">> • </span>
+                                    <span class="mx-1">> • </span>
                                     <div class="usia" style="font-size: 10px;">@if(isset($post['meta_post']['IDMUVICORE_Runtime'])){{$post['meta_post']['IDMUVICORE_Runtime']}} @endif min</div>   
                                 </div>
                                 <div class="judul-post mb-3">
-                                    <h2 class="letter-spaced" style="font-size: 42px;">{{$post['post_title']}}</h2>
+                                    <h2 class="letter-spaced" style="font-size: 36px;">{{$post['post_title']}}</h2>
                                 </div>
                                 <div class="category-post mb-4 mx-0">
                                     <div class="d-flex gap-2">
@@ -89,10 +89,10 @@
                                         </button>
                                         </a>
                                         
-                                        <button class="btn btn-outline-danger rounded-circle" style="border-width: 3px">
+                                        <button class="btn btn-outline-danger rounded-circle d-flex justify-content-center align-content-center align-items-center" style="border-width: 3px">
                                             <i class="fas fa-heart" style="padding: 0"></i>
                                         </button>
-                                        <button class="btn btn-outline-primary rounded-circle" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">
+                                        <button class="btn btn-outline-primary rounded-circle d-flex justify-content-center align-content-center align-items-center" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">
                                             <i class="fas fa-share-alt " style="padding: 0"></i>
                                         </button>
                                     </div>
@@ -100,7 +100,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-12">
                                         <div class="deskripsi-post mt-4">
-                                            <p style="font-size: 14px">{!!$post['post_content']!!}</p>
+                                            <p>{!!$post['post_content']!!}</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col">
@@ -108,10 +108,10 @@
                                           @if(isset($post['muvicast']))
                                             @foreach ($post['muvicast'] as $item)
                                               <div class="col-6 col">
-                                                  <div class="cast-post mt-4 d-flex gap-4">
-                                                      <img src="https://arjuna-mc.site/img/man.png" class="rounded-circle mb-3" style="width: 70px; height: 70px;" alt="Avatar" /> 
+                                                  <div class="cast-post mt-2 d-flex gap-4">
+                                                      <img src="https://arjuna-mc.site/img/man.png" class="rounded-circle mb-2" style="width: 50px; height: 50px;" alt="Avatar" /> 
                                                       <div class="card-name">
-                                                          <h5 class="mb-2"><strong>{{$item}}</strong></h5>
+                                                          <h5 style="font-size: 14px;"  class="mb-2"><strong>{{$item}}</strong></h5>
                                                           <p class="text-muted">Cast</p>         
                                                       </div>                          
                                                   </div>
@@ -120,10 +120,10 @@
                                           @endif
                                           @if(isset($post['muvidirector']))
                                           <div class="col-6 col">
-                                            <div class="cast-post mt-4 d-flex gap-4">
-                                                <img src="https://arjuna-mc.site/img/man1.png" class="rounded-circle mb-3" style="width: 70px; height: 70px;" alt="Avatar" /> 
+                                            <div class="cast-post mt-2 d-flex gap-4">
+                                                <img src="https://arjuna-mc.site/img/man1.png" class="rounded-circle mb-3" style="width: 50px; height: 50px;" alt="Avatar" /> 
                                                 <div class="card-name">
-                                                    <h5 class="mb-2"><strong>{{$post['muvidirector']}}</strong></h5>
+                                                    <h5 style="font-size: 14px;" class="mb-2"><strong>{{$post['muvidirector']}}</strong></h5>
                                                     <p class="text-muted">Director</p>         
                                                 </div>                          
                                             </div>
@@ -180,7 +180,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class=" col sidebar" >
+                    <div class="col-lg-2 col sidebar" >
                         <div class="side-single">
                             <h4 class="mb-3 letter-spaced" >Populer</h4>
                             @foreach ($popular as $item)
@@ -188,7 +188,7 @@
                                 <div class="side-post d-flex gap-4">
                                   <img src="{{$item->meta_value}}" class="rounded mb-3" style="width: 80px;" alt="{{$item->post_title}}" /> 
                                   <div class="side-judul">
-                                      <p style="font-size: 16px;">{{$item->post_title}}</p>
+                                      <p style="font-size: 14px;">{{$item->post_title}}</p>
                                       {{-- <p style="font-size: 14px; line-height: 16px;"><span class="side-category my-0">action, adventure</span><br>
                                           <span class="side-tahun my-0">2022</span></p> --}}
                                   </div>
