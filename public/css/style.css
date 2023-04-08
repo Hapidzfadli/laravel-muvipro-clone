@@ -200,7 +200,7 @@ footer {
 
 /* singele page */
 .stream {
-    height: 550px;
+    height: 600px;
     box-shadow: rgba(22, 21, 26, 0.2) 0px 7px 29px 0px;
     position: relative;
     max-width: 100vw;
@@ -295,7 +295,7 @@ footer {
       scale: 0.7;
     }
     .stream {
-      max-height: 250px;
+      max-height: 200px;
     }
  }
 
@@ -345,7 +345,9 @@ footer {
     .card-deck .card-body {
       font-size: 12px;
     }
-    
+    .stream {
+      max-height: 300px;
+    }
  }
  
  /* Large devices (laptops/desktops, 992px and up) */
@@ -369,6 +371,9 @@ footer {
     }
     .card-deck .card-body {
       font-size: 14px;
+    }
+    .stream {
+      max-height: 350px;
     }
  }
  

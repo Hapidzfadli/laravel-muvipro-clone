@@ -33,6 +33,58 @@
         </div>
       </div>
       <div class="my-4">
+        <p>Latest</p>
+        <div class="row position-relative">
+          <div class="col-12">
+            <div class="card-slider">
+              <div class="card-deck trending">
+                @foreach ($latest as $item)
+                  <div class="card">
+                    @if ($item->post_type == 'post')
+                    <a href="/{{$item->post_name}}">
+                    @elseif($item->post_type == 'tv')
+                    <a href="/tv/{{$item->post_name}}">
+                    @endif
+                    
+                      <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="{{$item->post_title}}">
+                    <div class="card-body">
+                      <p class="card-title">{{$item->post_title}}</p>
+                    </div>
+                    </a>
+                  </div>
+                @endforeach
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="my-4">
+        <p>Popular</p>
+        <div class="row position-relative">
+          <div class="col-12">
+            <div class="card-slider">
+              <div class="card-deck trending">
+                @foreach ($popular as $item)
+                  <div class="card">
+                    @if ($item->post_type == 'post')
+                    <a href="/{{$item->post_name}}">
+                    @elseif($item->post_type == 'tv')
+                    <a href="/tv/{{$item->post_name}}">
+                    @endif
+                    
+                      <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="{{$item->post_title}}">
+                    <div class="card-body">
+                      <p class="card-title">{{$item->post_title}}</p>
+                    </div>
+                    </a>
+                  </div>
+                @endforeach
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="my-4">
         <p>Tv Show</p>
         <div class="row position-relative">
           <div class="col-12">
