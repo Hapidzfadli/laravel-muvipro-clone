@@ -15,18 +15,21 @@
         <li class="nav-item mx-2">
           <a class="nav-link" href="#">My List</a>
         </li>
+        <li class="nav-item mx-2">
+          <form class="search-form">
+            <div class="input-group rounded-pill">
+              <input style="background: transparant;" type="text" class="form-control rounded-pill" placeholder="Search">
+              <div class="input-group-append" >
+                <button class="btn btn-transparant" style="margin-left: -40px" type="submit">
+                  <i class="fas fa-search" style="color: black;"></i>
+                </button>
+              </div>
+            </div>
+          </form>      
+        </li>
       </ul>
     </div>
-    <form class="search-form">
-        <div class="input-group rounded-pill">
-          <input type="text" class="form-control rounded-pill" placeholder="Search">
-          <div class="input-group-append" >
-            <button class="btn btn-transparant" style="margin-left: -40px" type="submit">
-              <i class="fas fa-search" style="color: black;"></i>
-            </button>
-          </div>
-        </div>
-      </form>      
+    
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
