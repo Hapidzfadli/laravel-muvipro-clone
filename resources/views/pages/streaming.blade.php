@@ -209,7 +209,11 @@
                                 <div class="card-deck">
                                   @foreach ($rekomendasi as $item)
                                     <div class="card">
-                                      <a href="{{$item->post_name}}">
+                                      @if ($item->post_type == 'post')
+                                        <a href="/{{$item->post_name}}">
+                                      @elseif($item->post_type == 'tv')
+                                        <a href="/tv/{{$item->post_name}}">
+                                      @endif
                                         <img class="card-img-top" data-src="{{$item->meta_value}}"  src="{{$item->meta_value}}" class="lazyload" alt="{{$item->post_title}}">
                                       <div class="card-body">
                                         <p class="card-title">{{$item->post_title}}</p>
