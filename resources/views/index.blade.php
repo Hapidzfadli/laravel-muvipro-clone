@@ -20,7 +20,7 @@
                     <a href="/tv/{{$item->post_name}}">
                     @endif
                     
-                      <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
+                      <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="{{$item->post_title}}">
                     <div class="card-body">
                       <p class="card-title">{{$item->post_title}}</p>
                     </div>
@@ -41,7 +41,7 @@
                 @foreach ($tvshow as $item)
                   <div class="card">
                     <a href="/tv/{{$item->post_name}}">
-                      <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
+                      <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="{{$item->post_title}}">
                     <div class="card-body">
                       <p class="card-title">{{$item->post_title}}</p>
                     </div>
@@ -66,7 +66,7 @@
                       @elseif($action->post_type == 'tv')
                         <a href="/tv/{{$action->post_name}}">
                       @endif
-                        <img class="card-img-top" data-src="{{$action->meta_value}}" src="{{$action->meta_value}}" class="lazyload" alt="Card image cap">
+                        <img class="card-img-top" data-src="{{$action->meta_value}}" src="{{$action->meta_value}}" class="lazyload" alt="{{$item->post_title}}">
                       <div class="card-body">
                         <p class="card-title">{{$action->post_title}}</p>
                       </div>
@@ -91,7 +91,7 @@
                       @elseif($adventure->post_type == 'tv')
                         <a href="/tv/{{$adventure->post_name}}">
                       @endif
-                        <img class="card-img-top" data-src="{{$adventure->meta_value}}" src="{{$adventure->meta_value}}" class="lazyload" alt="Card image cap">
+                        <img class="card-img-top" data-src="{{$adventure->meta_value}}" src="{{$adventure->meta_value}}" class="lazyload" alt="{{$item->post_title}}">
                       <div class="card-body">
                         <p class="card-title">{{$adventure->post_title}}</p>
                       </div>
@@ -117,7 +117,7 @@
                       @elseif($item->post_type == 'tv')
                         <a href="/tv/{{$item->post_name}}">
                       @endif
-                        <img class="card-img-top" data-src="{{$item->meta_value}}"  src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
+                        <img class="card-img-top" data-src="{{$item->meta_value}}"  src="{{$item->meta_value}}" class="lazyload" alt="{{$item->post_title}}">
                       <div class="card-body">
                         <p class="card-title">{{$item->post_title}}</p>
                       </div>
@@ -142,7 +142,7 @@
                       @elseif($item->post_type == 'tv')
                         <a href="/tv/{{$item->post_name}}">
                       @endif
-                        <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
+                        <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="{{$item->post_title}}">
                       <div class="card-body">
                         <p class="card-title">{{$item->post_title}}</p>
                       </div>
@@ -167,7 +167,7 @@
                       @elseif($item->post_type == 'tv')
                         <a href="/tv/{{$item->post_name}}">
                       @endif
-                        <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
+                        <img class="card-img-top" data-src="{{$item->meta_value}}" src="{{$item->meta_value}}" class="lazyload" alt="{{$item->post_title}}">
                       <div class="card-body">
                         <p class="card-title">{{$item->post_title}}</p>
                       </div>

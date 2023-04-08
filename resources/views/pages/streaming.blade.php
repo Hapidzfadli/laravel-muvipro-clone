@@ -136,17 +136,17 @@
                                 <div class="row btn-download">
                                   @if(isset($post['meta_post']['IDMUVICORE_Download1']))
                                     <div class="col my-2">
-                                        <a href="{{$post['meta_post']['IDMUVICORE_Download1']}}" target="_blank>
+                                        <a href="{{$post['meta_post']['IDMUVICORE_Download1']}}" target="_blank">
                                             <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$post['meta_post']['IDMUVICORE_Title_Download1']}}</button> 
                                         </a>
                                     </div>
                                   @endif
                                   @if(isset($post['meta_post']['IDMUVICORE_Download2']))
-                                    <div class="col my-2">
-                                        <a href="{{$post['meta_post']['IDMUVICORE_Download2']}}" target="_blank >
-                                            <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$post['meta_post']['IDMUVICORE_Title_Download2']}}</button> 
-                                        </a>
-                                    </div>
+                                  <div class="col my-2">
+                                    <a href="{{$post['meta_post']['IDMUVICORE_Download2']}}" target="_blank">
+                                        <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$post['meta_post']['IDMUVICORE_Title_Download2']}}</button> 
+                                    </a>
+                                </div>
                                   @endif
                                   @if(isset($post['meta_post']['IDMUVICORE_Download3']))
                                     <div class="col my-2">
@@ -210,7 +210,7 @@
                                   @foreach ($rekomendasi as $item)
                                     <div class="card">
                                       <a href="{{$item->post_name}}">
-                                        <img class="card-img-top" data-src="{{$item->meta_value}}"  src="{{$item->meta_value}}" class="lazyload" alt="Card image cap">
+                                        <img class="card-img-top" data-src="{{$item->meta_value}}"  src="{{$item->meta_value}}" class="lazyload" alt="{{$item->post_title}}">
                                       <div class="card-body">
                                         <p class="card-title">{{$item->post_title}}</p>
                                       </div>
