@@ -5,11 +5,22 @@
         <div class="row gutter-2">
             <div class="col-12">
                 <div class="stream" id="streaming">
+                  @if($post['post_type'] == "post")
                     @if(isset($post['meta_post']['IDMUVICORE_Player1'])){!! $post['meta_post']['IDMUVICORE_Player1']!!} @endif 
+                  @elseif($post['post_type'] == "tv")
+                    @if(isset($post['meta_post']['IDMUVICORE_Trailer']))
+                    <iframe src="https://www.youtube.com/embed/{{$post['meta_post']['IDMUVICORE_Trailer']}}" title="{{$post['post_title']}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    @endif 
+                  @else
+                      
+                  @endif
+              
+                    
                 </div>
 
                 <div class="content row">
                     <div class="col-lg-10 col-12 mb-3">
+                      
                         <div class="row position-relative">
                             <div class="col-2 image-post">
                                 <div class="card">
@@ -17,13 +28,29 @@
                                 </div>
                             </div>
                             <div class="col col-lg-9 detail-post position-relative">
-                              <div class="player-btn position-absolute" style="right:0;">
-                                <button class="btn ply-back btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;"><i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                </button> 
-                                player <span class="player-number">1</span>
-                                <button class="btn ply-next btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;"><i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                </button> 
-                              </div>
+                              
+                                
+                                <div class="episode d-flex gap-2">
+                                  @if($post['post_type'] == "tv")
+                                    @foreach ($episode as $item)
+                                      <button class="btn mb-3 btn-eps  btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">EPS <span class="{{ $item->post_id }}">{{$item->meta_value}}</span>
+                                      </button> 
+                                    @endforeach
+                                  @endif
+                                  @if ($post['post_type'] == "post")
+                                    <div class="player-btn position-absolute" style="right:0;">
+                                      <button class="btn ply-back btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                      </button> 
+                                      player <span class="player-number">1</span>
+                                      <button class="btn ply-next btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;"><i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                      </button> 
+                                    </div>
+                                  @endif
+                                  
+                                </div>
+                               
+                              
+                              
                                 <div class="rating mb-2">
                                     <i class="fas fa-star"></i>
                                     <span>@if(isset($post['meta_post']['IDMUVICORE_tmdbRating'])){{$post['meta_post']['IDMUVICORE_tmdbRating']}} @endif</span>
@@ -38,7 +65,7 @@
                                 <div class="category-post mb-4 mx-0">
                                     <div class="d-flex gap-2">
                                       @if(isset($post['category']))
-                                        @foreach ($post['category'] as $item)
+                                        @foreach ($post['category']->take(2) as $item)
                                           <a href="/category/{{$item}}">
                                             <button class="btn btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$item}}</button> 
                                           </a> 
@@ -109,42 +136,42 @@
                                 <div class="row btn-download">
                                   @if(isset($post['meta_post']['IDMUVICORE_Download1']))
                                     <div class="col my-2">
-                                        <a href="{{$post['meta_post']['IDMUVICORE_Download1']}}">
+                                        <a href="{{$post['meta_post']['IDMUVICORE_Download1']}}" target="_blank>
                                             <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$post['meta_post']['IDMUVICORE_Title_Download1']}}</button> 
                                         </a>
                                     </div>
                                   @endif
                                   @if(isset($post['meta_post']['IDMUVICORE_Download2']))
                                     <div class="col my-2">
-                                        <a href="{{$post['meta_post']['IDMUVICORE_Download2']}}">
+                                        <a href="{{$post['meta_post']['IDMUVICORE_Download2']}}" target="_blank >
                                             <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$post['meta_post']['IDMUVICORE_Title_Download2']}}</button> 
                                         </a>
                                     </div>
                                   @endif
                                   @if(isset($post['meta_post']['IDMUVICORE_Download3']))
                                     <div class="col my-2">
-                                        <a href="{{$post['meta_post']['IDMUVICORE_Download3']}}">
+                                        <a href="{{$post['meta_post']['IDMUVICORE_Download3']}}" target="_blank">
                                             <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$post['meta_post']['IDMUVICORE_Title_Download3']}}</button> 
                                         </a>
                                     </div>
                                   @endif
                                   @if(isset($post['meta_post']['IDMUVICORE_Download4']))
                                     <div class="col my-2">
-                                        <a href="{{$post['meta_post']['IDMUVICORE_Download4']}}">
+                                        <a href="{{$post['meta_post']['IDMUVICORE_Download4']}}" target="_blank">
                                             <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$post['meta_post']['IDMUVICORE_Title_Download4']}}</button> 
                                         </a>
                                     </div>
                                   @endif
                                   @if(isset($post['meta_post']['IDMUVICORE_Download5']))
                                     <div class="col my-2">
-                                        <a href="{{$post['meta_post']['IDMUVICORE_Download5']}}">
+                                        <a href="{{$post['meta_post']['IDMUVICORE_Download5']}}" target="_blank">
                                             <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$post['meta_post']['IDMUVICORE_Title_Download5']}}</button> 
                                         </a>
                                     </div>
                                   @endif
                                   @if(isset($post['meta_post']['IDMUVICORE_Download6']))
                                     <div class="col my-2">
-                                        <a href="{{$post['meta_post']['IDMUVICORE_Download6']}}">
+                                        <a href="{{$post['meta_post']['IDMUVICORE_Download6']}}" target="_blank">
                                             <button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$post['meta_post']['IDMUVICORE_Title_Download6']}}</button> 
                                         </a>
                                     </div>
@@ -157,7 +184,7 @@
                         <div class="side-single">
                             <h4 class="mb-3 letter-spaced" >Populer</h4>
                             @foreach ($popular as $item)
-                              <a href="{{$item->post_name}}">
+                              <a href="/{{$item->post_name}}">
                                 <div class="side-post d-flex gap-4">
                                   <img src="{{$item->meta_value}}" class="rounded mb-3" style="width: 80px;" alt="{{$item->post_title}}" /> 
                                   <div class="side-judul">
@@ -247,9 +274,9 @@
                 let intVal = parseInt(spanVal)
                 
                 if(intVal == 2) {
-                  iframe = '{!! $post["meta_post"]["IDMUVICORE_Player1"]!!}'
+                  iframe = '@if(isset($post["meta_post"]["IDMUVICORE_Player1"])){!! $post["meta_post"]["IDMUVICORE_Player1"]!!} @endif'
                 } else if(intVal == 3) {
-                  iframe = '{!! $post["meta_post"]["IDMUVICORE_Player2"]!!}'
+                  iframe = '@if(isset($post["meta_post"]["IDMUVICORE_Player2"])){!! $post["meta_post"]["IDMUVICORE_Player2"]!!} @endif'
                 }
                 if(intVal > 1) {
                     $('.player-number').text(intVal)
@@ -264,9 +291,9 @@
                 let iframe = ''
                 
                 if(intVal == 1) {
-                  iframe = '{!! $post["meta_post"]["IDMUVICORE_Player2"]!!}'
+                  iframe = '@if(isset($post["meta_post"]["IDMUVICORE_Player2"])){!! $post["meta_post"]["IDMUVICORE_Player2"]!!} @endif'
                 } else if(intVal == 2) {
-                  iframe = '{!! $post["meta_post"]["IDMUVICORE_Player3"]!!}'
+                  iframe = '@if(isset($post["meta_post"]["IDMUVICORE_Player3"])){!! $post["meta_post"]["IDMUVICORE_Player3"]!!} @endif'
                 }
                 
                 if(intVal <= 3) {
@@ -274,6 +301,52 @@
                   $('#streaming').html(iframe)
                 }
                 intVal++
+            });
+            $('.btn-eps').click(function(){
+              var id = $(this).find('span').attr('class');
+              $.ajax({
+                  url: '{{ route("ajax") }}',
+                  type: 'POST',
+                  dataType: 'json',
+                  data: {post_id: id, _token: '{{csrf_token()}}'},
+                  success: function(response) {
+                    $('.btn-download').find('div').remove()
+                    if (response.hasOwnProperty('IDMUVICORE_Player1')) {
+                        $('#streaming').html(response.IDMUVICORE_Player1)
+                    }
+                    if (response.hasOwnProperty('IDMUVICORE_Download1')) {
+                        
+                        var btn = '<div class="col my-2"><a target="_blank" href="'+response.IDMUVICORE_Download1+'"><button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">'+response.IDMUVICORE_Title_Download1+'</button> </a></div>'
+                        $('.btn-download').append(btn)
+                    }
+                    if (response.hasOwnProperty('IDMUVICORE_Download2')) {
+
+                        var btn = '<div class="col my-2"><a target="_blank" href="'+response.IDMUVICORE_Download2+'"><button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">'+response.IDMUVICORE_Title_Download2+'</button> </a></div>'
+                        $('.btn-download').append(btn)
+                    }
+                    if (response.hasOwnProperty('IDMUVICORE_Download3')) {
+
+                        var btn = '<div class="col my-2"><a target="_blank" href="'+response.IDMUVICORE_Download3+'"><button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">'+response.IDMUVICORE_Title_Download3+'</button> </a></div>'
+                        $('.btn-download').append(btn)
+                    }
+                    if (response.hasOwnProperty('IDMUVICORE_Download4')) {
+                        var btn = '<div class="col my-2"><a target="_blank" href="'+response.IDMUVICORE_Download4+'"><button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">'+response.IDMUVICORE_Title_Download4+'</button> </a></div>'
+                        $('.btn-download').append(btn)
+                    }
+                    if (response.hasOwnProperty('IDMUVICORE_Download5')) {
+                        var btn = '<div class="col my-2"><a href="'+response.IDMUVICORE_Download5+'"><button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">'+response.IDMUVICORE_Title_Download5+'</button> </a></div>'
+                        $('.btn-download').append(btn)
+                    }
+                    if (response.hasOwnProperty('IDMUVICORE_Download6')) {
+                        var btn = '<div class="col my-2"><a target="_blank" href="'+response.IDMUVICORE_Download6+'"><button class="btn btn-outline-primary rounded" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">'+response.IDMUVICORE_Title_Download6+'</button> </a></div>'
+                        $('.btn-download').append(btn)
+                    }
+                     
+                  },
+                  error: function(xhr) {
+                      console.log(xhr.responseText);
+                  }
+              });
             });
         });
     </script>

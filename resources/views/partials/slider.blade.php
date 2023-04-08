@@ -17,7 +17,7 @@
                         <p class="deskripsi">
                             {{$item['overview']}}
                         </p>
-                        <a href="/stream">
+                        <a href="/{{$item['post_name']}}">
                             <button class="btn btn-watch">
                                 <i class="fas fa-play"></i>
                                 <span>Watch</span>
@@ -42,7 +42,7 @@
                         <p class="deskripsi">
                             {{$item['overview']}}
                         </p>
-                        <a href="/stream">
+                        <a href="/{{$item['post_name']}}">
                             <button class="btn btn-watch">
                                 <i class="fas fa-play"></i>
                                 <span>Watch</span>

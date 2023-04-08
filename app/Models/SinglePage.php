@@ -25,7 +25,7 @@ class SinglePage extends Model
     {
         $posts = DB::table('wp_posts')
             ->where('wp_posts.post_type', '=', 'post')
-            ->select('wp_posts.ID', 'wp_posts.post_title', 'wp_posts.post_content')
+            ->select('wp_posts.ID', 'wp_posts.post_title', 'wp_posts.post_type', 'wp_posts.post_content')
             ->where('wp_posts.post_name', '=', $postname)
             ->orderBy('wp_posts.post_date', 'asc')
             ->get()
@@ -47,6 +47,7 @@ class SinglePage extends Model
         $result->put('ID', $posts->ID);
         $result->put('post_title', $posts->post_title);
         $result->put('post_content', $posts->post_content);
+        $result->put('post_type', $posts->post_type);
 
         $category = collect();
         $muvicast = collect();

@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SinglePageController;
+use App\Http\Controllers\TvShowController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +20,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/{postname}', [SinglePageController::class, 'index'])->name('post');
+Route::get('/tv/{postname}', [TvShowController::class, 'index'])->name('tv');
+
+Route::post('/ajax', [AjaxController::class, 'index'])->name('ajax');
