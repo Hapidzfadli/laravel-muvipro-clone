@@ -32,7 +32,7 @@ class Home extends Model
             ->join('wp_term_relationships', 'wp_terms.term_id', '=', 'wp_term_relationships.term_taxonomy_id')
             ->join('wp_posts', 'wp_term_relationships.object_id', '=', 'wp_posts.ID')
             ->join('wp_postmeta', 'wp_posts.ID', '=', 'wp_postmeta.post_id')
-            ->select('wp_posts.post_title', 'wp_posts.post_name', 'wp_postmeta.meta_value', 'wp_posts.post_type',)
+            ->select('wp_posts.post_title', 'wp_posts.post_name', 'wp_postmeta.meta_value', 'wp_posts.post_type', 'wp_posts.post_date')
             ->where('wp_postmeta.meta_key', '=', 'IDMUVICORE_Poster')
             ->orderByDesc('wp_posts.post_date')
             ->take(15)
