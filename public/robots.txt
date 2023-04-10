@@ -1,6 +1,7 @@
 User-agent: Googlebot
 Allow: /
 
+Sitemap: https://indoseries.xyz/sitemap.xml
 User-agent: Bingbot
 Allow: /
 
