@@ -13,7 +13,7 @@
                                 @elseif($item->post_type == 'tv')
                                 <a href="/tv/{{$item->post_name}}">
                                 @endif
-                                <img class="card-img-top" src="{{$item->meta_value}}"></a>
+                                <img class="card-img-top" rel="noopener noreferrer" src="{{$item->meta_value}}"></a>
                             </div>
                         </div>
                         <div class="col-9">

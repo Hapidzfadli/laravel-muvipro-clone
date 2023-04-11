@@ -24,7 +24,7 @@
                         <div class="row position-relative">
                             <div class="col-2 image-post">
                                 <div class="card">
-                                    <img class="card-img-top" src="@if(isset($post['meta_post']['IDMUVICORE_Poster'])){{$post['meta_post']['IDMUVICORE_Poster']}} @endif" alt="{{$post['post_title']}}">
+                                    <img class="card-img-top" rel="noopener noreferrer" src="@if(isset($post['meta_post']['IDMUVICORE_Poster'])){{$post['meta_post']['IDMUVICORE_Poster']}} @endif" alt="{{$post['post_title']}}">
                                 </div>
                             </div>
                             <div class="col col-lg-9 detail-post position-relative">
@@ -186,7 +186,7 @@
                             @foreach ($popular as $item)
                               <a href="/{{$item->post_name}}">
                                 <div class="side-post d-flex gap-4">
-                                  <img src="{{$item->meta_value}}" class="rounded mb-3" style="width: 80px;" alt="{{$item->post_title}}" /> 
+                                  <img src="{{$item->meta_value}}" rel="noopener noreferrer" class="rounded mb-3" style="width: 80px;" alt="{{$item->post_title}}" /> 
                                   <div class="side-judul">
                                       <p style="font-size: 14px;">{{$item->post_title}}</p>
                                       {{-- <p style="font-size: 14px; line-height: 16px;"><span class="side-category my-0">action, adventure</span><br>
@@ -214,7 +214,7 @@
                                       @elseif($item->post_type == 'tv')
                                         <a href="/tv/{{$item->post_name}}">
                                       @endif
-                                        <img class="card-img-top" data-src="{{$item->meta_value}}"  src="{{$item->meta_value}}" class="lazyload" alt="{{$item->post_title}}">
+                                        <img class="card-img-top" rel="noopener noreferrer" data-src="{{$item->meta_value}}"  src="{{$item->meta_value}}" class="lazyload" alt="{{$item->post_title}}">
                                       <div class="card-body">
                                         <p class="card-title">{{$item->post_title}}</p>
                                       </div>
