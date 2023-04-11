@@ -16,12 +16,12 @@
           <a class="nav-link" href="#">My List</a>
         </li>
         <li class="nav-item mx-2">
-          <form class="search-form">
+          <form action="/page/search" method="GET class="search-form">
             <div class="input-group rounded-pill">
-              <input style="background: transparant;" type="text" class="form-control rounded-pill" placeholder="Search">
+              <input style="background: transparent; color:white;"  name="search" type="text" class="form-control rounded-pill" placeholder="Search">
               <div class="input-group-append" >
                 <button class="btn btn-transparant" style="margin-left: -40px" type="submit">
-                  <i class="fas fa-search" style="color: black;"></i>
+                  <i class="fas fa-search" style="color: white;"></i>
                 </button>
               </div>
             </div>

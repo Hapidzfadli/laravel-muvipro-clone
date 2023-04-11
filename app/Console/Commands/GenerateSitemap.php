@@ -28,7 +28,7 @@ class GenerateSitemap extends Command
      */
     public function handle()
     {
-        SitemapGenerator::create('https://indoseries.xyz/')->writeToFile(public_path('sitemap.xml'));
+        SitemapGenerator::create(env('APP_URL'))->writeToFile(public_path('sitemap.xml'));
         $this->info('The sitemap has been generated');
     }
 }

@@ -13,7 +13,7 @@ class HomeController extends Controller
         $trending = Home::getPostTrending();
         $tvshow = Home::getTvShow();
         $postHeader = Home::getPostHeader();
-        $title = "Indoseries21";
+        $title = env('TITLE');
         $latest = Home::getPost();
         $meta_description = "$title adalah sebuah situs atau website khusus tempat untuk nonton movie streaming secara online serta download film keluaran terbaru dari luar negeri";
         $meta_keywords = "$title | Website Nonton dan Download Film Terbaru";
@@ -21,7 +21,7 @@ class HomeController extends Controller
         // dd($action);
 
         return view('index', [
-            "title" => "$title",
+            "title" => $meta_keywords,
             "meta_description" => $meta_description,
             "meta_keywords" => $meta_keywords,
             'actions' => $action,

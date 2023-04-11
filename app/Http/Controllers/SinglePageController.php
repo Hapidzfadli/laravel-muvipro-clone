@@ -18,7 +18,7 @@ class SinglePageController extends Controller
         $words = str_word_count($string, 1);
         $words = array_slice($words, 0, 20);
 
-        $title = "Indoseries21";
+        $title = env('TITLE');
         $meta_description = implode(' ', $words);
         $meta_keywords = isset($post['meta_post']['_yoast_wpseo_focuskw']) ? $post['meta_post']['_yoast_wpseo_focuskw'] : $post['post_title'];
 

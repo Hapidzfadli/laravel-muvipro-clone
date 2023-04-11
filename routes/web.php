@@ -7,6 +7,7 @@ use Spatie\Sitemap\SitemapGenerator;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TvShowController;
 use App\Http\Controllers\SinglePageController;
 
@@ -27,6 +28,8 @@ Route::get('/{postname}', [SinglePageController::class, 'index'])->name('post');
 Route::get('/tv/{postname}', [TvShowController::class, 'index'])->name('tv');
 
 Route::post('/ajax', [AjaxController::class, 'index'])->name('ajax');
+
+Route::get("/page/search", [SearchController::class, 'index'])->name('search');
 
 // Route::get('/sitemap.xml', function () {
 //     SitemapGenerator::create('http://localhost:8000')->writeToFile(public_path('sitemap.xml'));

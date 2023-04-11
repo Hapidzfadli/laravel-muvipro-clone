@@ -106,7 +106,7 @@
                                     <div class="col-lg-6 col">
                                         <div class="row">
                                           @if(isset($post['muvicast']))
-                                            @foreach ($post['muvicast'] as $item)
+                                            @foreach ($post['muvicast']->take(3) as $item)
                                               <div class="col-6 col">
                                                   <div class="cast-post mt-2 d-flex gap-4">
                                                       <img src="https://arjuna-mc.site/img/man.png" class="rounded-circle mb-2" style="width: 50px; height: 50px;" alt="Avatar" /> 
