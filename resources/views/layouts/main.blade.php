@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta http-equiv="Content-Security-Policy" content="allow-all-mixed-content">
     <meta name="description" content="{{$meta_description}}">
     <meta name="keywords" content="{{$meta_keywords}}">
     <meta name="google-site-verification" content="nyg9sngXbMez9cTZcdhVhat7E2INzl1Igom4oM02yJo" />
