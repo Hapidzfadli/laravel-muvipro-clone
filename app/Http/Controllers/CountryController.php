@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Search;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
-class SearchController extends Controller
+class CountryController extends Controller
 {
-    //
-    public function index(Request $request)
+    public function index($country)
     {
-        $search = $request->input('search');
+        $posts = Country::getPostByCountry(strtolower($country))->paginate(10);
         $title = env('TITLE');
-        $meta_description = "Search Movie $search";
-        $meta_keywords = $search;
-        $posts = Search::getPostsBySearch($search)->paginate(10)->appends(['search' => $search]);;
-
+        $meta_description = "Nonton Movie Negara $country";
+        $meta_keywords = "Nonton film Negara" . $country;
         return view('pages/search', [
             "title" => "$meta_keywords | $title",
             "meta_description" => $meta_description,

@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Search;
+use App\Models\Year;
 use Illuminate\Http\Request;
 
-class SearchController extends Controller
+class YearController extends Controller
 {
-    //
-    public function index(Request $request)
+    public function index($year)
     {
-        $search = $request->input('search');
+        $posts = Year::getPostByYear(strtolower($year))->paginate(10);
         $title = env('TITLE');
-        $meta_description = "Search Movie $search";
-        $meta_keywords = $search;
-        $posts = Search::getPostsBySearch($search)->paginate(10)->appends(['search' => $search]);;
-
+        $meta_description = "Nontan Movie Tahun $year";
+        $meta_keywords = "Nonton film tahun" . $year;
         return view('pages/search', [
             "title" => "$meta_keywords | $title",
             "meta_description" => $meta_description,

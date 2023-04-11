@@ -73,7 +73,7 @@
                                       @endif
                                       @if(isset($post['muvicountry']))
                                         @foreach ($post['muvicountry'] as $item)
-                                          <a href="/muvicountry/{{$item}}">
+                                          <a href="/country/{{$item}}">
                                             <button class="btn btn-outline-primary rounded-pill" style="background-color: transparent; border-color: rgba(30, 45, 160, 0.5); color:aqua;">{{$item}}</button> 
                                           </a> 
                                         @endforeach

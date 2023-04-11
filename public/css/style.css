@@ -29,6 +29,17 @@ body {
 .btn-transparant :hover {
     color: #16151a;
 }
+.dropdown-menu  {
+  background: transparent;
+}
+.dropdown-item {
+  color: white;
+  font-size: 14px;
+}
+.dropdown-item:hover {
+  background-color: #16151a;
+}
+
 .nav-link:hover {
     border-bottom: 2px solid red; /* ubah ketebalan dan warna garis sesuai kebutuhan */
   }

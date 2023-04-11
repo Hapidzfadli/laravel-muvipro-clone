@@ -6,10 +6,16 @@ use App\Models\SitemapTvShow;
 use Spatie\Sitemap\SitemapGenerator;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TvShowController;
 use App\Http\Controllers\SinglePageController;
+use App\Http\Controllers\YearController;
+use App\Models\Category;
+use App\Models\Country;
+use App\Models\Year;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,16 +37,6 @@ Route::post('/ajax', [AjaxController::class, 'index'])->name('ajax');
 
 Route::get("/page/search", [SearchController::class, 'index'])->name('search');
 
-// Route::get('/sitemap.xml', function () {
-//     SitemapGenerator::create('http://localhost:8000')->writeToFile(public_path('sitemap.xml'));
-
-//     return response()->view('sitemap');
-// });
-
-// Route::get('/sitemap-posts.xml', function () {
-//     return response()->sitemap(SitemapPosts::create());
-// });
-
-// Route::get('/sitemap-pages.xml', function () {
-//     return response()->sitemap(SitemapTvShow::create());
-// });
+Route::get("/category/{category}", [CategoryController::class, 'index'])->name('category');
+Route::get("/year/{year}", [YearController::class, 'index'])->name('year');
+Route::get("/country/{country}", [CountryController::class, 'index'])->name('country');
