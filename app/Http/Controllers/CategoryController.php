@@ -4,13 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class CategoryController extends Controller
 {
     //
     public function index($category)
     {
-        $posts = Category::getPostByCategory(strtolower($category))->paginate(10);
+        $posts = Cache::remember("categoryPost$category", '60', function () use ($category) {
+            return Category::getPostByCategory(strtolower($category))->paginate(10);
+        });
+
         $title = env('TITLE');
         $meta_description = "Category Movie $category";
         $meta_keywords = "Nonton film kategori" . $category;
