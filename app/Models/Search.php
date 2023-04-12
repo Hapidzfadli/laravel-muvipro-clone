@@ -15,7 +15,7 @@ class Search extends Model
     {
         $posts = DB::table('wp_posts')
             ->distinct()
-            ->select('wp_posts.ID', 'wp_postmeta.meta_value', 'wp_posts.post_name', 'wp_posts.post_title', 'wp_posts.post_content', 'wp_posts.post_type', 'wp_posts.post_content')
+            ->select('wp_posts.ID', 'wp_postmeta.meta_value', 'wp_posts.post_name', 'wp_posts.post_title', 'wp_posts.post_content', 'wp_posts.post_type', 'wp_posts.post_content', 'wp_posts.post_date')
             ->join('wp_postmeta', 'wp_posts.ID', '=', 'wp_postmeta.post_id')
             ->where('wp_posts.post_title', 'LIKE', "%$search%")
             ->where('wp_posts.post_status', '=', 'publish')

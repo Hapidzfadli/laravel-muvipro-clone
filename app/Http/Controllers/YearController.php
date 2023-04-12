@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Cache;
 
 class YearController extends Controller
 {
-    public function index($year)
+    public function index($year, Request $request)
     {
-        $posts = Cache::remember("yearPost$year", '60', function () use ($year) {
-            return Year::getPostByYear(strtolower($year))->paginate(10);
+        $page = $request->input('page') ? $request->input('page') : 1;
+        $posts = Cache::remember("yearPost" . $year . "page" . $page, '60', function () use ($year, $page) {
+            return Year::getPostByYear(strtolower($year))->paginate(10)->appends(['page' => $page]);
         });
         $title = env('TITLE');
         $meta_description = "Nontan Movie Tahun $year";

@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Cache;
 class CategoryController extends Controller
 {
     //
-    public function index($category)
+    public function index($category, Request $request)
     {
-        $posts = Cache::remember("categoryPost$category", '60', function () use ($category) {
-            return Category::getPostByCategory(strtolower($category))->paginate(10);
+        $page = $request->input('page') ? $request->input('page') : 1;
+        $posts = Cache::remember("categoryPost" . $category . "page" . $page, '60', function () use ($category, $page) {
+            return Category::getPostByCategory(strtolower($category))->paginate(10)->appends(['page' => $page]);
         });
 
         $title = env('TITLE');
