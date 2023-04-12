@@ -129,7 +129,7 @@ body {
     margin-right: 10px;
   }
   .simple-translate {
-    display: none!;
+    display: none !important;
   }
   
   .btn-watch span {
