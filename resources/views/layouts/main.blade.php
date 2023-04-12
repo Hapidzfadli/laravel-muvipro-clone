@@ -58,5 +58,10 @@
             lazySizes.init();
         }
     </script>
+    <style>
+        .simple-translate {
+            display: none !important;
+        }
+    </style>
 </body>
 </html>
