@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-transparant fixed-top">
-    <a class="navbar-brand" href="{{ route('home') }}">Indoseries</a>
+    <a class="navbar-brand" href="{{ route('home') }}">@env('TITLE')
+        
+    @endenv</a>
     
     <div class="collapse navbar-collapse ml-lg-1" id="navbarNav">
       <ul class="navbar-nav ml-auto">
