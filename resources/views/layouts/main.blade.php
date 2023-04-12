@@ -59,7 +59,7 @@
         }
     </script>
     <style>
-        .simple-translate {
+        #simple-translate {
             display: none !important;
         }
     </style>
