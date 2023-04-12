@@ -12,6 +12,7 @@ class Year extends Model
     use HasFactory;
     public static function getPostByYear($year)
     {
+        
         $posts = DB::table('wp_terms')
             ->distinct()
             ->where('wp_terms.name', '=', $year)
