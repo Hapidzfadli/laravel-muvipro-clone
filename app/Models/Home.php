@@ -14,7 +14,7 @@ class Home extends Model
 
     public static function getPost()
     {
-        $posts = Cache::remember('posts', 360, function () {
+        $posts = Cache::remember('posts', 60, function () {
             return DB::table('wp_posts')
                 ->distinct()
                 ->select('wp_posts.post_title', 'wp_posts.post_date', 'wp_posts.post_type', 'wp_posts.post_name', 'wp_postmeta.meta_value')
