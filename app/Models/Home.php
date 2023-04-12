@@ -32,7 +32,7 @@ class Home extends Model
 
     public static function getPostByCategory($category)
     {
-        $posts = Cache::remember('category', 1140, function () use ($category) {
+        $posts = Cache::remember('category' . $category, 1140, function () use ($category) {
             return DB::table('wp_terms')
                 ->distinct()
                 ->where('wp_terms.name', '=', $category)
