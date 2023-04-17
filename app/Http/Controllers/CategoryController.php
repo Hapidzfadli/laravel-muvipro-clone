@@ -18,7 +18,7 @@ class CategoryController extends Controller
 
         $title = env('TITLE');
         $meta_description = "Category Movie $category";
-        $meta_keywords = "Nonton film kategori" . $category;
+        $meta_keywords = "Nonton film kategori " . $category;
         return view('pages/search', [
             "title" => "$meta_keywords | $title",
             "meta_description" => $meta_description,

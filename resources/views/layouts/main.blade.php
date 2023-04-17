@@ -36,6 +36,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <title>{{$title}}</title>
 
+    {{-- galaksion --}}
+    <script data-cfasync="false" async type="text/javascript" src="//vitiumcranker.com/rJ4sxeME8hc/64173"></script>
+
 </head>
 <body>  
 

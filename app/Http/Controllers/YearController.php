@@ -16,7 +16,7 @@ class YearController extends Controller
         });
         $title = env('TITLE');
         $meta_description = "Nontan Movie Tahun $year";
-        $meta_keywords = "Nonton film tahun" . $year;
+        $meta_keywords = "Nonton film tahun " . $year;
         return view('pages/search', [
             "title" => "$meta_keywords | $title",
             "meta_description" => $meta_description,

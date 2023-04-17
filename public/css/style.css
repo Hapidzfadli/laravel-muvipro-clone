@@ -129,7 +129,7 @@ body {
     margin-right: 10px;
   }
   .episode  {
-    overflow-x: scroll;
+    overflow-x: auto;
   }
   #simple-translate {
     display: none !important;
