@@ -37,7 +37,7 @@
     <title>{{$title}}</title>
 
     {{-- galaksion --}}
-    <script data-cfasync="false" async type="text/javascript" src="//inklestutted.com/rnW5GHtQloISXFS/64175"></script>
+    <script data-cfasync="false" async type="text/javascript" src="//{{env('GALAKSION')}}"></script>
 
 </head>
 <body>  
@@ -55,7 +55,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
-
+    <script type="text/javascript">
+        var app_url = 'https://futakotamagawa.info/';
+        var app_api_token = '437876a5320e0706edb4a9eb381dc5151e8f53a4';
+        var app_advert = 2;
+        var app_exclude_domains = ["csbmovie.xyz","downmovie21.my.id","indoseries.xyz","empirexxi.xyz"];
+    </script>
+    <script src='//futakotamagawa.info/js/full-page-script.js'></script>    
     <script>
         window.onload = function() {
             lazySizes.init();
