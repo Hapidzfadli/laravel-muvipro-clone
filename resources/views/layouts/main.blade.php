@@ -37,7 +37,7 @@
     <title>{{$title}}</title>
 
     {{-- galaksion --}}
-    <script data-cfasync="false" async type="text/javascript" src="//ionistkhaya.website/rRbh4d0i8IZnAcUE/64174"></script>
+    <script data-cfasync="false" async type="text/javascript" src="//inklestutted.com/rnW5GHtQloISXFS/64175"></script>
 
 </head>
 <body>  
