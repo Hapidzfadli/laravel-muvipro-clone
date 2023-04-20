@@ -186,7 +186,7 @@
                             @foreach ($popular as $item)
                               <a href="/{{$item->post_name}}">
                                 <div class="side-post d-flex gap-4">
-                                  <img src="{{$item->meta_value}}" rel="noopener noreferrer" class="rounded mb-3" style="width: 80px;" alt="{{$item->post_title}}" /> 
+                                  <img src="{{str_replace("http://165.227.81.126/", "https://indoseries21.my.id/", $item->meta_value)}}" rel="noopener noreferrer" class="rounded mb-3" style="width: 80px;" alt="{{$item->post_title}}" /> 
                                   <div class="side-judul">
                                       <p style="font-size: 14px;">{{$item->post_title}}</p>
                                       {{-- <p style="font-size: 14px; line-height: 16px;"><span class="side-category my-0">action, adventure</span><br>
@@ -214,7 +214,7 @@
                                       @elseif($item->post_type == 'tv')
                                         <a href="/tv/{{$item->post_name}}">
                                       @endif
-                                        <img class="card-img-top" rel="noopener noreferrer" data-src="{{$item->meta_value}}"  src="{{$item->meta_value}}" class="lazyload" alt="{{$item->post_title}}">
+                                        <img class="card-img-top" rel="noopener noreferrer" data-src="{{str_replace("http://165.227.81.126/", "https://indoseries21.my.id/", $item->meta_value)}}"  src="{{str_replace("http://165.227.81.126/", "https://indoseries21.my.id/", $item->meta_value)}}" class="lazyload" alt="{{$item->post_title}}">
                                       <div class="card-body">
                                         <p class="card-title">{{$item->post_title}}</p>
                                       </div>
