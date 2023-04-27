@@ -55,12 +55,12 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
     <script type="text/javascript">
-        var app_url = 'https://futakotamagawa.info/';
-        var app_api_token = '437876a5320e0706edb4a9eb381dc5151e8f53a4';
+        var app_url = 'https://safelink.web-nonton.xyz/';
+        var app_api_token = '23d14dc20f610fe3ce2313116f25d9986eefe3a6';
         var app_advert = 2;
-        var app_exclude_domains = ["csbmovie.xyz","downmovie21.my.id","indoseries.xyz","empirexxi.xyz"];
+        var app_exclude_domains = ["csbmovie.xyz","downmovie21.my.id","indoseries.xyz","empirexxi.xyz","165.227.81.126","157.230.65.59"];
     </script>
-    <script src='//futakotamagawa.info/js/full-page-script.js'></script>    
+    <script src='//safelink.web-nonton.xyz/js/full-page-script.js'></script>  
     <script>
         window.onload = function() {
             lazySizes.init();
