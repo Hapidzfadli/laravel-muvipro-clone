@@ -18,6 +18,8 @@ class SinglePageController extends Controller
         $words = str_word_count($string, 1);
         $words = array_slice($words, 0, 20);
 
+        $postTitle = $post['post_title'];
+
         $title = env('TITLE');
         $meta_description = implode(' ', $words);
         $meta_keywords = isset($post['meta_post']['_yoast_wpseo_focuskw']) ? $post['meta_post']['_yoast_wpseo_focuskw'] : $post['post_title'];
@@ -27,7 +29,7 @@ class SinglePageController extends Controller
         }
 
         return view('pages/streaming', [
-            "title" => "$meta_keywords | $title",
+            "title" => "Nonton dan Download Film $postTitle 480p 720p 1080p | $title",
             "meta_description" => $meta_description,
             "meta_keywords" => $meta_keywords,
             "post" => $post,
