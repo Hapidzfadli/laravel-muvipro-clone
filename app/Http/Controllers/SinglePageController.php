@@ -29,7 +29,7 @@ class SinglePageController extends Controller
         }
 
         return view('pages/streaming', [
-            "title" => "Nonton dan Download Film $postTitle 480p 720p 1080p | $title",
+            "title" => "Nonton dan Download Film $postTitle 1080p | $title",
             "meta_description" => $meta_description,
             "meta_keywords" => $meta_keywords,
             "post" => $post,
