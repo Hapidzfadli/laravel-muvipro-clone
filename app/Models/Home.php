@@ -116,8 +116,6 @@ class Home extends Model
             });
             Cache::put('dataTmdb', $result, now()->addHours(6));
         }
-
-
         return $result;
     }
 }
